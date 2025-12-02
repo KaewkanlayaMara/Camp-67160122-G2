@@ -233,8 +233,13 @@
 
                         <div class="row mt-3 justify-content-center align-items-center">
                             <div class="col-auto">
-                                <input class="form-check-input" type="checkbox" value="" id="checkIndeterminate">
-                                <label class="col-form-label" for="checkIndeterminate">ยินยอมให้เก็บข้อมูล</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkIndeterminate">
+
+                                    <label class="form-check-label" for="checkIndeterminate">
+                                        ยินยอมให้เก็บข้อมูล
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -275,7 +280,7 @@
         }, duration * 1000);
     }
 
-    setInterval(createFallingItem, 300);
+    setInterval(createFallingItem, 2500);
     </script>
 
 </body>
