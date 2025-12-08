@@ -357,19 +357,17 @@ setInterval(createFallingItem, 2500);
                     male.classList.remove("is-valid")
                     male.classList.add("is-invalid")
 
-                } else {
-                    male.classList.remove("is-invalid")
-                    male.classList.add("is-valid")
-                }
-                if(female.value == ""){
                     female.classList.remove("is-valid")
                     female.classList.add("is-invalid")
 
                 } else {
+                    male.classList.remove("is-invalid")
+                    male.classList.add("is-valid")
+
                     female.classList.remove("is-invalid")
                     female.classList.add("is-valid")
                 }
-
             }
+                
         </script>
 @endpush
