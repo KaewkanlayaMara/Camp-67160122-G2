@@ -10,13 +10,14 @@
             <div class="card shadow-sm">
                 <div class="card-body" style="color: #227850e4;">
 
-                    <form>
+                    <form action="/user" method = "POST">
+                        @csrf
                         <div class="row mb-3 justify-content-center">
                             <div class="col-auto">
                                 <label for="fname" class="col-form-label">ชื่อ</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="fname" class="form-control" placeholder="กรุณากรอกชื่อของคุณ"
+                                <input type="text" id="fname" name="fname" class="form-control" placeholder="กรุณากรอกชื่อของคุณ"
                                     onkeyup="checkValidate()">
                                 <div class="valid-feedback">ถูกต้อง</div>
                                 <div class="invalid-feedback">ไม่ได้ระบุชื่อ</div>
@@ -26,7 +27,7 @@
                                 <label for="lname" class="col-form-label">สกุล</label>
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="lname" class="form-control" placeholder="กรุณากรอกสกุลของคุณ"
+                                <input type="text" id="lname" name="lname" class="form-control" placeholder="กรุณากรอกสกุลของคุณ"
                                     onkeyup="checkValidate()">
                                 <div class="valid-feedback">ถูกต้อง</div>
                                 <div class="invalid-feedback">ไม่ได้ระบุสกุล</div>
@@ -35,10 +36,10 @@
 
                         <div class="row mb-3 justify-content-center">
                             <div class="col-auto">
-                                <label for="dob" class="col-form-label">วัน/เดือน/ปี</label>
+                                <label for="date" class="col-form-label">วัน/เดือน/ปี</label>
                             </div>
                             <div class="col-auto">
-                                <input type="date" id="dob" class="form-control" onchange="checkValidate()">
+                                <input type="date" id="date" name="date" class="form-control" onchange="checkValidate()">
                                 <div class="valid-feedback">ถูกต้อง</div>
                                 <div class="invalid-feedback">ไม่ได้ระบุ วัน/เดือน/ปี</div>
                             </div>
@@ -47,7 +48,7 @@
                                 <label for="age" class="col-form-label">อายุ</label>
                             </div>
                             <div class="col-auto">
-                                <input type="number" id="age" class="form-control" placeholder="กรุณากรอกอายุของคุณ"
+                                <input type="number" id="age" name="age" class="form-control" placeholder="กรุณากรอกอายุของคุณ"
                                     onkeyup="checkValidate()" onchange="checkValidate()">
                                 <div class="valid-feedback">ถูกต้อง</div>
                                 <div class="invalid-feedback">ไม่ได้ระบุอายุ</div>
@@ -60,14 +61,14 @@
                             </div>
                             <div class="col-auto">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sex" id="male"
+                                    <input class="form-check-input" type="radio" value="male" name="sex" id="male"
                                         onchange="checkValidate()">
                                     <label class="form-check-label" for="male">ชาย</label>
                                 </div>
                             </div>
                             <div class="col-auto">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sex" id="female"
+                                    <input class="form-check-input" type="radio" name="sex" value="female" id="female"
                                         onchange="checkValidate()">
                                     <label class="form-check-label" for="female">หญิง</label>
                                     <div class="valid-feedback">ถูกต้อง</div>
@@ -81,7 +82,7 @@
                                 <label for="userPhoto" class="col-form-label">รูป</label>
                             </div>
                             <div class="col-auto">
-                                <input type="file" class="form-control" id="userPhoto" onchange="checkValidate()">
+                                <input type="file" class="form-control" id="userPhoto" name="userPhoto" onchange="checkValidate()">
                                 <div class="valid-feedback">ถูกต้อง</div>
                                 <div class="invalid-feedback">กรุณาใส่รูป</div>
                             </div>
@@ -92,7 +93,7 @@
                                 <label for="userAddress" class="col-form-label">ที่อยู่</label>
                             </div>
                             <div class="col-auto" style="width: 400px;">
-                                <textarea class="form-control" id="userAddress" rows="3"
+                                <textarea class="form-control" id="userAddress" rows="3" name="userAddress"
                                     placeholder="กรุณากรอกที่อยู่ของคุณ" onkeyup="checkValidate()"></textarea>
                                 <div class="valid-feedback">ถูกต้อง</div>
                                 <div class="invalid-feedback">กรุณากรอกที่อยู่ของคุณ</div>
@@ -158,28 +159,28 @@
                             <div class="col-auto">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="genre" id="genre1"
-                                        onchange="checkValidate()">
+                                        onchange="checkValidate()" value="life">
                                     <label class="form-check-label" for="genre1">เพลงเพื่อเธอ</label>
                                 </div>
                             </div>
                             <div class="col-auto">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="genre" id="genre2"
-                                        onchange="checkValidate()">
+                                        onchange="checkValidate()" value="brokenheart">
                                     <label class="form-check-label" for="genre2">เพลงจมกับคนเก่า</label>
                                 </div>
                             </div>
                             <div class="col-auto">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="genre" id="genre3"
-                                        onchange="checkValidate()">
+                                        onchange="checkValidate()" value="rap">
                                     <label class="form-check-label" for="genre3">เพลงแรปเทสดีไปรักเธอ</label>
                                 </div>
                             </div>
                             <div class="col-auto">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="genre" id="genre4"
-                                        onchange="checkValidate()">
+                                        onchange="checkValidate()" value="other">
                                     <label class="form-check-label" for="genre4">อื่นๆ</label>
                                     <div class="valid-feedback">เลือกแนวเพลงเรียบร้อย</div>
                                     <div class="invalid-feedback">กรุณาเลือกแนวเพลงอย่างน้อย 1 อย่าง</div>
@@ -190,7 +191,7 @@
                         <div class="row mt-3 justify-content-center align-items-center">
                             <div class="col-auto">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkIndeterminate"
+                                    <input class="form-check-input" type="checkbox" value="1" name="consent"  id="checkIndeterminate"
                                         onchange="checkValidate()">
                                     <label class="form-check-label" for="checkIndeterminate">
                                         ยินยอมให้เก็บข้อมูล
@@ -204,7 +205,7 @@
                         <div class="d-flex justify-content-center gap-3 mt-3">
                             <div class="col-auto">
                                 <button type="reset" class="btn btn-secondary px-5 py-2">RESET</button>
-                                <button type="button" onclick="checkValidate()"
+                                <button type="submit" onclick="checkValidate()"
                                     class="btn btn-primary px-5 py-2">SUBMIT</button>
                             </div>
                         </div>
@@ -260,13 +261,13 @@ const checkValidate = () => {
         lname.classList.add("is-valid");
     }
 
-    let dob = document.getElementById('dob');
-    if (dob.value == "") {
-        dob.classList.remove("is-valid");
-        dob.classList.add("is-invalid");
+    let date = document.getElementById('date');
+    if (date.value == "") {
+        date.classList.remove("is-valid");
+        date.classList.add("is-invalid");
     } else {
-        dob.classList.remove("is-invalid");
-        dob.classList.add("is-valid");
+        date.classList.remove("is-invalid");
+        date.classList.add("is-valid");
     }
 
     let age = document.getElementById('age');

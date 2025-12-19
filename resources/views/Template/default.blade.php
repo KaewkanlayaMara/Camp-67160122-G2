@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>67160122</title>
+    <title>@yield('title')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
@@ -74,7 +74,7 @@
     }
     </style>
     @yield('content')
-    @stack('scripts')
+    {{-- @stack('scripts')22 --}}
 </body>
 
 
