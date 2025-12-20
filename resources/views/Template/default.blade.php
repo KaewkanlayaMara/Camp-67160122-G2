@@ -74,7 +74,7 @@
     }
     </style>
     @yield('content')
-    {{-- @stack('scripts')22 --}}
+    @stack('scripts')
 </body>
 
 
