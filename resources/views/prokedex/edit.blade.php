@@ -16,7 +16,7 @@
                 <p class="text-white-50 mb-0">Updating: <strong>{{ $pokedex_update->name }}</strong></p>
             </div>
             <div class="col-auto">
-                <a href="{{ url('/prokedex') }}" class="btn btn-light text-primary fw-bold shadow-sm rounded-pill px-4">
+                <a href="{{ url('/prokedexs') }}" class="btn btn-light text-primary fw-bold shadow-sm rounded-pill px-4">
                     <i class="bi bi-arrow-left"></i> Back
                 </a>
             </div>
